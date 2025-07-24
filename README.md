@@ -119,6 +119,33 @@ Create a configuration file to customize the scraper behavior:
 }
 ```
 
+Key Changes Made:
+Terms of Service Compliance: Removed automated scraping functions that violate Poe's ToS (Section 3.3 specifically prohibits web scraping)
+
+Updated Information Sources: Used the actual content you provided from Poe.com's about page, Terms of Service, and Privacy Policy
+
+Accurate Pricing Information: Based on the real pricing structure ($4.99/month starting price)
+
+Proper Bot Lists: Updated with the actual popular bots from Poe.com
+
+Compliance Checking: Added functions to check and document ToS compliance
+
+Educational Focus: Restructured as an information collector rather than a scraper
+
+Error Handling: Improved error handling throughout
+
+Documentation: Added clear warnings about ToS compliance
+
+Important Notes:
+This updated version respects Poe.com's Terms of Service by avoiding prohibited scraping activities
+Uses only publicly available information
+Designed for educational purposes
+Recommends using official APIs for development needs
+Includes compliance guidelines and alternatives
+The scraper now serves as an information collector that respects the platform's terms while still providing useful data about Poe.com's services and features.
+
+
+
 ## 📚 Documentation
 
 Detailed documentation is available in the `docs/` directory:
