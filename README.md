@@ -1,8 +1,3 @@
-I can see the GitHub repository structure for the poe-com-scraper project, but I notice there's no existing README.md file visible in the repository. Based on the repository structure and files I can observe, I'll create a comprehensive README.md for this project.
-
-Here's a README.md file for the poe-com-scraper project:
-
-```markdown
 # Poe.com Scraper
 
 A Python-based web scraper designed to extract data from Poe.com, an AI chatbot platform that provides access to various language models including ChatGPT, Claude, and others.
