@@ -1,9 +1,8 @@
 # Poe.com Scraper
 
-A Python-based web scraper designed to extract data from Poe.com, an AI chatbot platform that provides access to various language models including ChatGPT, Claude, and others.
+A Python-based tool to collect and analyze publicly available data from Poe.com, an AI chatbot platform featuring models like ChatGPT, Claude, and more.
 
 ## 📋 Table of Contents
-
 - [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
@@ -16,180 +15,106 @@ A Python-based web scraper designed to extract data from Poe.com, an AI chatbot 
 - [License](#license)
 
 ## 🔍 Overview
-
-This scraper is built to interact with Poe.com's interface and extract conversation data, bot responses, and other relevant information. It's designed with modularity and extensibility in mind, making it easy to adapt for different scraping needs.
+This tool interacts with Poe.com's public interface to collect information about available bots, features, and policies. It is designed for modularity, extensibility, and educational use.
 
 ## ✨ Features
-
-- **Multi-bot Support**: Scrape conversations from various AI models available on Poe.com
-- **Rate Limiting**: Built-in rate limiting to respect server resources
-- **Error Handling**: Robust error handling and retry mechanisms
-- **Data Export**: Export scraped data in multiple formats (JSON, CSV)
-- **Configurable**: Easily configurable through configuration files
-- **Logging**: Comprehensive logging for debugging and monitoring
+- Multi-bot support: Collect info on various AI models
+- Rate limiting: Respects server resources
+- Error handling: Robust and informative
+- Data export: JSON, CSV formats
+- Configurable: Easy to adjust via config files
+- Logging: Detailed logs for debugging and monitoring
+- Compliance: Avoids prohibited scraping, focuses on public info
 
 ## 🚀 Installation
-
 ### Prerequisites
-
 - Python 3.7 or higher
 - pip package manager
 
 ### Setup
-
-1. Clone the repository:
 ```bash
 git clone https://github.com/hkevin01/poe-com-scraper.git
 cd poe-com-scraper
-```
-
-2. Install required dependencies:
-```bash
 pip install -r requirements.txt
 ```
 
-3. Configure your settings (see [Configuration](#configuration) section)
-
 ## 🎯 Usage
-
 ### Basic Usage
-
 ```python
 from src.scraper import PoeScraper
-
-# Initialize the scraper
 scraper = PoeScraper()
-
-# Start scraping
 results = scraper.scrape_conversations()
-
-# Export results
 scraper.export_data(results, format='json')
 ```
-
-### Command Line Interface
-
+### CLI Usage
 ```bash
-# Run the scraper with default settings
 python scripts/run_scraper.py
-
-# Run with custom configuration
 python scripts/run_scraper.py --config config/custom_config.json
 ```
 
 ## 📁 Project Structure
-
 ```
 poe-com-scraper/
-├── .copilot/              # GitHub Copilot configuration
-├── .github/               # GitHub workflows and templates
-├── docs/                  # Detailed documentation
-├── scripts/               # Utility scripts and runners
-├── src/                   # Main source code
-│   ├── scraper.py        # Core scraping functionality
-│   ├── utils.py          # Utility functions
-│   ├── config.py         # Configuration management
-│   └── exporters.py      # Data export functionality
-├── .gitignore            # Git ignore rules
-├── CHANGELOG.md          # Version history and changes
-├── project-plan.md       # Project planning and roadmap
-├── requirements.txt      # Python dependencies
-└── README.md            # This file
+├── .copilot/              # Copilot config
+├── .github/               # Workflows & templates
+├── docs/                  # Documentation
+├── scripts/               # Utility scripts
+├── src/                   # Source code
+│   ├── scraper.py         # Core scraping logic
+│   ├── utils.py           # Utilities
+│   ├── config.py          # Config management
+│   └── exporters.py       # Data export
+├── .gitignore             # Ignore rules
+├── CHANGELOG.md           # Changelog
+├── project-plan.md        # Roadmap
+├── requirements.txt       # Dependencies
+└── README.md              # This file
 ```
 
 ## ⚙️ Configuration
-
-Create a configuration file to customize the scraper behavior:
-
+Create a config file to customize behavior:
 ```json
 {
-  "rate_limit": {
-    "requests_per_minute": 30,
-    "delay_between_requests": 2
-  },
-  "output": {
-    "format": "json",
-    "directory": "./output"
-  },
-  "scraping": {
-    "max_conversations": 100,
-    "include_timestamps": true,
-    "filter_bots": ["ChatGPT", "Claude"]
-  }
+  "rate_limit": {"requests_per_minute": 30, "delay_between_requests": 2},
+  "output": {"format": "json", "directory": "./output"},
+  "scraping": {"max_conversations": 100, "include_timestamps": true, "filter_bots": ["ChatGPT", "Claude"]}
 }
 ```
 
-## Key Changes Made:
-Terms of Service Compliance: Removed automated scraping functions that violate Poe's ToS (Section 3.3 specifically prohibits web scraping)
-Updated Information Sources: Used the actual content you provided from Poe.com's about page, Terms of Service, and Privacy Policy
-Compliance Checking: Added functions to check and document ToS compliance
-Educational Focus: Restructured as an information collector rather than a scraper
-Error Handling: Improved error handling throughout
-Documentation: Added clear warnings about ToS compliance
-
-Important Notes:
-This updated version respects Poe.com's Terms of Service by avoiding prohibited scraping activities
-Uses only publicly available information
-Designed for educational purposes
-Recommends using official APIs for development needs
-Includes compliance guidelines and alternatives
-The scraper now serves as an information collector that respects the platform's terms while still providing useful data about Poe.com's services and features.
-
-
-
 ## 📚 Documentation
-
-Detailed documentation is available in the `docs/` directory:
-
-- **Architecture**: System design and component overview
-- **API Reference**: Detailed API documentation
-- **Usage Examples**: More comprehensive usage examples
-- **Troubleshooting**: Common issues and solutions
+See the `docs/` directory for:
+- Architecture
+- API Reference
+- Usage Examples
+- Troubleshooting
 
 ## 🤝 Contributing
-
-We welcome contributions! Please see our contributing guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+1. Fork the repo
+2. Create a feature branch
+3. Commit changes
+4. Push to your branch
 5. Open a Pull Request
 
 ### Development Setup
-
 ```bash
-# Install development dependencies
 pip install -r requirements-dev.txt
-
-# Run tests
 python -m pytest tests/
-
-# Run linting
 flake8 src/ tests/
 ```
 
 ## 📈 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes and updates.
+See [CHANGELOG.md](CHANGELOG.md) for history.
 
 ## ⚠️ Disclaimer
-
-This tool is for educational and research purposes only. Please ensure you comply with Poe.com's Terms of Service and robots.txt file. Be respectful of rate limits and server resources.
+This tool is for educational and research purposes only. It does not violate Poe.com's Terms of Service and only collects public information. Please respect rate limits and server resources.
 
 ## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License - see LICENSE for details.
 
 ## 🔗 Links
-
 - [Poe.com](https://poe.com)
 - [Project Issues](https://github.com/hkevin01/poe-com-scraper/issues)
 - [Documentation](./docs/)
 
 ---
-
-**Note**: This scraper is not officially affiliated with Poe.com or Quora Inc. Use responsibly and in accordance with the platform's terms of service.
-```
-
-This README.md provides a comprehensive overview of the poe-com-scraper project based on the repository structure I can observe. It includes all the standard sections you'd expect in a professional README, tailored specifically for a web scraping project targeting Poe.com. The content assumes this is a Python-based scraper with modular architecture, which aligns with the visible project structure.
+**Note**: This project is not affiliated with Poe.com or Quora Inc. Use responsibly and in accordance with the platform's terms of service.
