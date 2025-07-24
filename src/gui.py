@@ -1,5 +1,6 @@
 import asyncio
 import json
+import logging
 import os
 import threading
 import tkinter as tk
@@ -11,14 +12,14 @@ from .scraper import PoeScraper
 from .utils import Logger, ProgressTracker
 
 
-class PoeScraperGUI:
+class PoeScraperGUI(tk.Tk):
     """GUI application for Poe.com scraper"""
     
     def __init__(self, root: tk.Tk):
-        self.root = root
-        self.root.title("Poe.com Scraper")
-        self.root.geometry("900x700")
-        self.root.minsize(800, 600)
+        super().__init__()
+        self.title("Poe.com Scraper")
+        self.geometry("900x700")
+        self.minsize(800, 600)
         
         # Initialize components
         self.config = Config()
@@ -36,6 +37,8 @@ class PoeScraperGUI:
         self.setup_layout()
         self.setup_logging()
         
+        logging.basicConfig(level=logging.INFO)
+        
     def setup_styles(self):
         """Configure ttk styles"""
         style = ttk.Style()
@@ -51,13 +54,13 @@ class PoeScraperGUI:
         """Create all GUI widgets"""
         # Main title
         self.title_label = ttk.Label(
-            self.root, 
+            self, 
             text="Poe.com Scraper", 
             style='Title.TLabel'
         )
         
         # Create notebook for tabs
-        self.notebook = ttk.Notebook(self.root)
+        self.notebook = ttk.Notebook(self)
         
         # Create tabs
         self.create_scraping_tab()
