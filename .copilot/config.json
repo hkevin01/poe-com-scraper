@@ -1,0 +1,5 @@
+{
+  "behavior": "focus on modularity, readability, and best practices",
+  "preferredLanguages": ["python"],
+  "commentStyle": "docstring"
+}

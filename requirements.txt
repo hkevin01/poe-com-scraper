@@ -1,0 +1,9 @@
+# Example Python requirements
+selenium
+requests
+httpx
+sqlalchemy
+beautifulsoup4
+rich
+tqdm
+click
